@@ -82,7 +82,7 @@ class RobotDataset(Dataset):
         delta_psoe = pose_next - pose_curr
         gripper_state = self._load_pickle(gripper_paths[local_index])
 
-        label = np.concatenate([delta_psoe, [float(gripper_state)]])
+        label = np.concatenate([delta_psoe, [float(gripper_state)]], dtype=np.float32)
 
         if self.transform:
             image = self.transform(image)
